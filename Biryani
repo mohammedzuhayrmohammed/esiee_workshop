@@ -1,0 +1,71 @@
+# TASK : Create a function to cook biryani
+def favorite_dish(dish="biryani", spice_level="medium", is_vegetarian=False, servings=4):
+
+    # On vérifie que le plat demandé est bien "biryani"
+    if dish.lower() != "biryani":
+        return "La recette n'est disponible que pour le Biryani simplifié."
+    
+    # Vérification du niveau d'épices. On utilise "medium" par défaut si le niveau fourni n'est pas reconnu.
+    if spice_level.lower() not in ["mild", "medium", "hot"]:
+        print("Niveau d'épices non reconnu. Utilisation du niveau 'medium' par défaut.")
+        spice_level = "medium"
+    
+    # Méthode interne : Préparer une liste simplifiée d'ingrédients
+    def prepare_ingredients():
+        print("\n Préparation des ingrédients simplifiés")
+        # Ingrédients de base pour tous
+        ingredients = ["Riz basmati", "Oignon", "Ail", "Tomate", "Huile"]
+        # Protéine selon l'option végétarienne ou non
+        if not is_vegetarian:
+            ingredients.insert(0, "Poulet")
+        else:
+            ingredients.insert(0, "Tofu")
+        # Ajout d'épices simples
+        ingredients.append("Curcuma")
+        ingredients.append("Sel")
+        print("Ingrédients nécessaires pour", servings, "personne(s) :")
+        for item in ingredients:
+            print("  -", item)
+    
+    # Marinade simple
+    def marinate():
+        print("\n Marinade simplifiée")
+        if not is_vegetarian:
+            print("Découpez le poulet en petits morceaux et mélangez-le avec un peu de curcuma et de sel.")
+        else:
+            print("Découpez le tofu en dés et mélangez-le avec du curcuma et du sel.")
+    
+    # Cuisson des aromates (oignon et ail)
+    def cook_aromatics():
+        print("\n Cuisson des aromates")
+        print("Coupez l'oignon et l'ail, puis faites-les revenir dans l'huile jusqu'à ce qu'ils deviennent tendres.")
+    
+    # Méthode interne : Cuisson simplifiée du riz
+    def cook_rice():
+        print("\n Cuisson du riz")
+        print("Faites bouillir le riz dans de l'eau salée pendant environ 5-7 minutes (jusqu'à ce qu'il soit à moitié cuit).")
+    
+    # Méthode interne : Assemblage et cuisson finale
+    def assemble_and_finish():
+        print("\n Assemblage et cuisson finale")
+        print("Dans une casserole, disposez une couche de riz, une couche de protéine (poulet/tofu) et les aromates.")
+        print("Répétez l'opération pour créer plusieurs couches, puis couvrez la casserole.")
+        print("Laissez cuire à feu doux pendant environ 15-20 minutes pour que les saveurs se mélangent.")
+    
+    # Processus global : Exécution des différentes étapes
+    print("\n Début de la préparation de votre plat :", dish.capitalize())
+    print("Nombre de portions :", servings)
+    print("Niveau d'épices :", spice_level.capitalize())
+    
+    prepare_ingredients()
+    marinate()
+    cook_aromatics()
+    cook_rice()
+    assemble_and_finish()
+    
+    print("\n Votre Biryani simplifié est prêt à être dégusté !")
+    return "Biryani simplifié cuisiné avec succès !"
+
+# Exemple d'utilisation de la fonction favorite_dish
+result = favorite_dish(dish="biryani", spice_level="mild", is_vegetarian=True, servings=2)
+print("\n Résultat :", result)
