@@ -1,0 +1,103 @@
+class Superhero:
+    def __init__(self, name, alias, strength_level):
+        self.name = name
+        self.alias = alias
+        self.strength_level = strength_level
+        # Initialize powers as False; they must be activated
+        self.flight = False
+        self.super_strength = False
+        self.heat_vision = False
+        self.invisibility = False
+        self.teleportation = False
+
+    # Methods to activate powers
+    def activate_flight(self):
+        self.flight = True
+        print(f"{self.alias} can now fly!")
+
+    def activate_super_strength(self):
+        self.super_strength = True
+        print(f"{self.alias} now has superhuman strength!")
+
+    def activate_heat_vision(self):
+        self.heat_vision = True
+        print(f"{self.alias}'s eyes can now emit powerful heat rays!")
+
+    def activate_invisibility(self):
+        self.invisibility = True
+        print(f"{self.alias} can now become invisible!")
+
+    def activate_teleportation(self):
+        self.teleportation = True
+        print(f"{self.alias} can now teleport!")
+
+    # Methods to use powers
+    def use_flight(self):
+        if self.flight:
+            print(f"{self.alias} is soaring through the skies!")
+        else:
+            print(f"{self.alias} hasn't activated flight yet.")
+
+    def use_super_strength(self):
+        if self.super_strength:
+            print(f"{self.alias} lifts an enormous object effortlessly!")
+        else:
+            print(f"{self.alias} hasn't activated super strength yet.")
+
+    def use_heat_vision(self):
+        if self.heat_vision:
+            print(f"{self.alias} uses heat vision to melt barriers!")
+        else:
+            print(f"{self.alias} hasn't activated heat vision yet.")
+
+    def use_invisibility(self):
+        if self.invisibility:
+            print(f"{self.alias} becomes invisible and moves unseen!")
+        else:
+            print(f"{self.alias} hasn't activated invisibility yet.")
+
+    def use_teleportation(self):
+        if self.teleportation:
+            print(f"{self.alias} teleports to a distant location instantly!")
+        else:
+            print(f"{self.alias} hasn't activated teleportation yet.")
+
+    # Actions for powers
+    def action_flight(self):
+        return "Flying high above the clouds!"
+
+    def action_super_strength(self):
+        return "Smashing through obstacles!"
+
+    def action_heat_vision(self):
+        return "Melting steel with a single glance!"
+
+    def action_invisibility(self):
+        return "Sneaking past enemies unseen!"
+
+    def action_teleportation(self):
+        return "Instantly appearing across the world!"
+
+    def introduce(self):
+        return (f"Hello! I am {self.alias}, also known as {self.name}. "
+                f"My strength level is {self.strength_level}/100.")
+
+
+# Example usage:
+hero = Superhero("Clark Kent", "Superman", 95)
+
+# Activating powers
+hero.activate_flight()
+hero.activate_super_strength()
+
+# Using powers
+hero.use_flight()
+hero.use_heat_vision()  # not activated yet
+hero.activate_heat_vision()
+hero.use_heat_vision()
+
+# Power actions
+print(hero.action_flight())
+print(hero.action_super_strength())
+
+print(hero.introduce())
